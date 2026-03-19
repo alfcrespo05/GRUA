@@ -18,7 +18,7 @@ public class LauncherPad : MonoBehaviour
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.velocity = transform.forward * launchForce;
+                rb.linearVelocity = transform.forward * launchForce;
 
                 if (explosionEffect != null)
                     explosionEffect.Play();

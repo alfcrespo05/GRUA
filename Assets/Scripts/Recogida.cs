@@ -59,7 +59,7 @@ public class PickupSystem : MonoBehaviour
             // Transfer cargo momentum to box
             Rigidbody cargoRB = GetComponent<Rigidbody>();
             if (cargoRB != null)
-                boxRB.velocity = cargoRB.velocity * 1.5f;
+                boxRB.linearVelocity = cargoRB.linearVelocity * 1.5f;
         }
         Outline outline = attachedBox.GetComponent<Outline>();
         if (outline != null)

@@ -44,7 +44,7 @@ public class RopeGenerator : MonoBehaviour
         }
         //Sonido cuando se mueve
         Rigidbody lastSegment = segments[segments.Count - 1].GetComponent<Rigidbody>();
-        bool isSwinging = lastSegment.velocity.magnitude > 0.5f;
+        bool isSwinging = lastSegment.linearVelocity.magnitude > 0.5f;
         soundManager.PlayRope(isSwinging);
     }
 
@@ -75,8 +75,8 @@ public class RopeGenerator : MonoBehaviour
                 segment.GetComponent<Renderer>().material = ropeMaterial;
 
             Rigidbody rb = segment.AddComponent<Rigidbody>();
-            rb.drag = 3f;
-            rb.angularDrag = 3f;
+            rb.linearDamping = 3f;
+            rb.angularDamping = 3f;
             rb.maxAngularVelocity = 20f;
             rb.interpolation = RigidbodyInterpolation.Interpolate;
             HingeJoint hinge = segment.AddComponent<HingeJoint>();
@@ -100,8 +100,8 @@ public class RopeGenerator : MonoBehaviour
         cargoRB.mass = 5f;
         cargoRB.maxAngularVelocity = 20f;
         cargoRB.interpolation = RigidbodyInterpolation.Interpolate;
-        cargoRB.drag = 3f;
-        cargoRB.angularDrag = 3f;
+        cargoRB.linearDamping = 3f;
+        cargoRB.angularDamping = 3f;
 
         HingeJoint cargoHinge = cargo.AddComponent<HingeJoint>();
         cargoHinge.connectedBody = previousRB;

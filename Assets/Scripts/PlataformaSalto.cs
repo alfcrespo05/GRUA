@@ -11,7 +11,7 @@ public class JumpPad : MonoBehaviour
         if (rb != null)
         {
             // Boxes always bounce
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
 
             if (jumpEffect != null)
@@ -19,7 +19,7 @@ public class JumpPad : MonoBehaviour
         }
 
         // Crane only jumps once
-        if (other.gameObject.name == "Grúa" || other.transform.root.name == "Grúa")
+        if (other.gameObject.name == "GrÃºa" || other.transform.root.name == "GrÃºa")
         {
             CraneController crane = other.transform.root.GetComponent<CraneController>();
             if (crane != null && !crane.isJumping)
